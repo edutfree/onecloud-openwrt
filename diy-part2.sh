@@ -10,14 +10,6 @@
 # See /LICENSE for more information.
 #
 
-# Modify default IP
-sed -i 's/192.168.1.1/192.168.11.232/g' package/base-files/files/bin/config_generate
-
-# Modify default theme
-#sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
-
-# Modify hostname
-sed -i 's/OpenWrt/OneCloud/g' package/base-files/files/bin/config_generate
-
-# 替换终端为bash
-sed -i 's/\/bin\/ash/\/bin\/bash/' package/base-files/files/etc/passwd
+sed -i 's/192.168.1.1/192.168.11.232/g' package/base-files/luci2/bin/config_generate
+#sed -i 's/LEDE/OpenWrt(2025.3.21)/g' package/base-files/luci2/bin/config_generate
+sed -i 's/LEDE/OpenWrt-'"$(date -d "now" +%Y-%m-%d)"'/g' package/base-files/luci2/bin/config_generate
